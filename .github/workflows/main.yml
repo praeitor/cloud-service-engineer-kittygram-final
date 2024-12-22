@@ -78,9 +78,9 @@ jobs:
         with:
           push: true
           tags: |
-            ${{ secrets.DOCKER_USERNAME }}/kittygram_backend:latest
-            ${{ secrets.DOCKER_USERNAME }}/kittygram_frontend:latest
-            ${{ secrets.DOCKER_USERNAME }}/kittygram_gateway:latest
+            ${{ secrets.DOCKER_USER }}/kittygram_backend:latest
+            ${{ secrets.DOCKER_USER }}/kittygram_frontend:latest
+            ${{ secrets.DOCKER_USER }}/kittygram_gateway:latest
           contexts: |
             backend=./backend
             frontend=./frontend
