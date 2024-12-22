@@ -38,7 +38,6 @@ services:
   gateway:
     image: praeitor/kittygram_gateway
     container_name: gateway
-    env_file: .env
     restart: always
     depends_on:
       - backend
