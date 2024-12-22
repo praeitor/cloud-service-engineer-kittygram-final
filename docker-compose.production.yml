@@ -1,0 +1,50 @@
+volumes:
+  pg_data:
+  static:
+  media:
+
+services:
+  postgres:
+    image: postgres:13
+    container_name: postgres
+    env_file: .env
+    restart: always
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+
+  backend:
+    image: praeitor/kittygram_backend
+    container_name: backend
+    env_file: .env
+    restart: always
+    depends_on:
+      - postgres
+    ports:
+      - 9000:9000
+    volumes:
+      - static:/backend_static
+      - media:/app/media
+
+  frontend:
+    image: praeitor/kittygram_frontend
+    container_name: frontend
+    ports:
+      - 8000:8000
+    command: >
+      sh -c "cp -r /app/build/. /frontend_static/ && npx -y http-server -p 8000 /app/build"
+    volumes:
+      - static:/frontend_static
+
+  gateway:
+    image: praeitor/kittygram_gateway
+    container_name: gateway
+    env_file: .env
+    restart: always
+    depends_on:
+      - backend
+      - frontend
+    ports:
+      - 80:80
+    volumes:
+      - static:/staticfiles
+      - media:/app/media
