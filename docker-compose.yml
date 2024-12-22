@@ -27,6 +27,10 @@ services:
     image: praeitor/kittygram_frontend
     container_name: frontend
     env_file: .env
+    ports:
+      - "8000:8000"
+    command: >
+      sh -c "cp -r /app/build/. /frontend_static/ && npx -y http-server -p 8000 /app/build"
     volumes:
       - static:/frontend_static
 
