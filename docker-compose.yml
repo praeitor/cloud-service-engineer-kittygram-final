@@ -27,9 +27,12 @@ services:
     image: praeitor/kittygram_frontend
     container_name: frontend
     env_file: .env
-    command: cp -r /app/build/. /frontend_static/
+    restart: always
+    ports:
+      - "8000:8000"
+    command: cp -r /app/build/. /static/
     volumes:
-      - static:/frontend_static
+      - static:/static
 
   gateway:
     image: praeitor/kittygram_gateway
