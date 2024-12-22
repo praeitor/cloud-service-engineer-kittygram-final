@@ -4,7 +4,7 @@ volumes:
   media:
 
 services:
-  db:
+  postgres:
     image: postgres:13
     container_name: postgres
     env_file: .env
@@ -18,7 +18,7 @@ services:
     env_file: .env
     restart: always
     depends_on:
-      - db
+      - postgres
     volumes:
       - static:/backend_static
       - media:/app/media
