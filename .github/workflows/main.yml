@@ -134,9 +134,9 @@ jobs:
     - name: Copy docker-compose via scp
       uses: appleboy/scp-action@master
       with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USER }}
-        key: ${{ secrets.SSH_KEY }}
+        host: ${{ secrets.SSHHOST }}
+        username: ${{ secrets.SSHUSER }}
+        key: ${{ secrets.SSHKEY }}
         source: "docker-compose.yml"
         target: "~/kittygram"
     - name: Executing remote ssh commands to deploy
