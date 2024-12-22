@@ -28,6 +28,8 @@ services:
     container_name: frontend
     command:
       cp -r /app/build/. /frontend_static/
+    ports:
+      - 8000:8000
     volumes:
       - static:/frontend_static
 
