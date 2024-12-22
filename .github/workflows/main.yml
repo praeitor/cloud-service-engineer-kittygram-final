@@ -82,6 +82,6 @@ jobs:
             ${{ secrets.DOCKER_USER }}/kittygram_frontend:latest
             ${{ secrets.DOCKER_USER }}/kittygram_gateway:latest
           contexts: |
-            backend=./backend
-            frontend=./frontend
-            gateway=./nginx
+            backend=./backend/
+            frontend=./frontend/
+            gateway=./nginx/
