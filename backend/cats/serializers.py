@@ -1,11 +1,9 @@
 import base64
+import datetime as dt
 
+import webcolors
 from django.core.files.base import ContentFile
 from rest_framework import serializers
-import webcolors
-
-
-import datetime as dt
 
 from .models import Achievement, AchievementCat, Cat
 
@@ -18,7 +16,8 @@ class Hex2NameColor(serializers.Field):
         try:
             data = webcolors.hex_to_name(data)
         except ValueError:
-            raise serializers.ValidationError('Для этого цвета нет имени')
+            raise serializers.\
+                ValidationError('Для этого цвета нет имени')
         return data
 
 
@@ -50,8 +49,8 @@ class CatSerializer(serializers.ModelSerializer):
     class Meta:
         model = Cat
         fields = (
-            'id', 'name', 'color', 'birth_year', 'achievements', 'owner', 'age',
-            'image'
+            'id', 'name', 'color', 'birth_year',
+            'achievements', 'owner', 'age', 'image'
         )
         read_only_fields = ('owner',)
 
@@ -66,9 +65,10 @@ class CatSerializer(serializers.ModelSerializer):
             achievements = validated_data.pop('achievements')
             cat = Cat.objects.create(**validated_data)
             for achievement in achievements:
-                current_achievement, status = Achievement.objects.get_or_create(
-                    **achievement
-                )
+                current_achievement, status = \
+                    Achievement.objects.get_or_create(
+                        **achievement
+                    )
                 AchievementCat.objects.create(
                     achievement=current_achievement, cat=cat
                 )
@@ -85,9 +85,10 @@ class CatSerializer(serializers.ModelSerializer):
             achievements_data = validated_data.pop('achievements')
             lst = []
             for achievement in achievements_data:
-                current_achievement, status = Achievement.objects.get_or_create(
-                    **achievement
-                )
+                current_achievement, status = \
+                    Achievement.objects.get_or_create(
+                        **achievement
+                    )
                 lst.append(current_achievement)
             instance.achievements.set(lst)
 
