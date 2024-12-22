@@ -27,7 +27,6 @@ services:
     image: praeitor/kittygram_frontend
     container_name: frontend
     env_file: .env
-    command: cp -r /app/build/. /frontend_static/
     volumes:
       - static:/frontend_static
 
