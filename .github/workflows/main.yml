@@ -131,13 +131,13 @@ jobs:
     steps:
     - name: Checkout repo
       uses: actions/checkout@v4
-    - name: Copy docker-compose via scp
+    - name: Copy docker-compose.production.yml via scp
       uses: appleboy/scp-action@master
       with:
         host: ${{ secrets.SSHHOST }}
         username: ${{ secrets.SSHUSER }}
         key: ${{ secrets.SSHKEY }}
-        source: "docker-compose.yml"
+        source: "docker-compose.production.yml"
         target: "~/kittygram"
     - name: Executing remote ssh commands to deploy
       uses: appleboy/ssh-action@master
@@ -148,9 +148,9 @@ jobs:
         script: |
           sudo docker system prune -af
           cd ~/kittygram
-          sudo docker-compose -f docker-compose.yml pull
-          sudo docker-compose -f docker-compose.yml down
-          sudo docker-compose -f docker-compose.yml up -d
+          sudo docker-compose -f docker-compose.production.yml pull
+          sudo docker-compose -f docker-compose.production.yml down
+          sudo docker-compose -f docker-compose.production.yml up -d
           sudo docker-compose -f docker-compose.production.yml exec -T backend python manage.py migrate
           sudo docker-compose -f docker-compose.production.yml exec -T backend python manage.py collectstatic --no-input
           sudo docker-compose -f docker-compose.production.yml exec -T backend cp -r /app/collected_static/. /app/static/static/
