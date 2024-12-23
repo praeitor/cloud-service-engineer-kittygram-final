@@ -1,3 +1,13 @@
-POSTGRES_DB=kittygram
-POSTGRES_USER=kittygram_user
-POSTGRES_PASSWORD=kittygram_password
+# Database settings
+POSTGRES_DB=dbname
+POSTGRES_USER=dbuser
+POSTGRES_PASSWORD=dbsecurepass
+POSTGRES_HOST=dbhost
+POSTGRES_PORT=dbport 
+
+# Django settings
+SECRET_KEY=your_secret_key_here  # Введите уникальный ключ для Django (например, сгенерированный через django-secret-key-generator)
+DEBUG=True                       # True для разработки, False для продакшена
+
+# ALLOWED_HOSTS (значения через пробел или запятую, в зависимости от split в settings.py)
+ALLOWED_HOSTS=localhost,127.0.0.1,yourdomain.com
