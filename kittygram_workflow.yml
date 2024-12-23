@@ -41,7 +41,7 @@ jobs:
         POSTGRES_DB: kittygram
         DB_HOST: postgres
         DB_PORT: 5432
-        SECRET_KEY: r943ruj0938rjf9j09fj0932jf9023gj29few
+        SECRET_KEY: supersecurekeyfodjango
         DEBUG: False
       run: |
         python -m flake8 backend/
