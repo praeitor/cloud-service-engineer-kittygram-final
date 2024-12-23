@@ -8,11 +8,13 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [3.9, 3.10, 3.11]
+        python-major-version: [3]
+        python-minor-version: [8, 9, 10, 11]
     services:
       postgres:
         image: postgres
         env:
+          python-version: ${{ format('{0}.{1}', matrix.python-major-version, matrix.python-minor-version) }}
           POSTGRES_USER: postgres_kittygram_user
           POSTGRES_PASSWORD: postgres_kittygram_password
           POSTGRES_DB: kittygram
@@ -22,10 +24,10 @@ jobs:
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v4
-    - name: Set up Python ${{ matrix.python-version }}
+    - name: Set up Python ${{ env.python-version }}
       uses: actions/setup-python@v5
       with:
-        python-version: ${{ matrix.python-version }}
+        python-version: ${{ env.python-version }}
 
     - name: Install dependencies
       run: |
