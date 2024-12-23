@@ -165,4 +165,8 @@ jobs:
         with:
           to: ${{ secrets.TELEGRAM_CHAT_ID }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
-          message: "✅ Kittygram successfully deployed!"
+          message: |
+            ✅ *Kittygram успешно задеплоен!*
+            👤 *Автор:* ${{ github.actor }}
+            📝 *Сообщение коммита:* ${{ github.event.commits[0].message }}
+            🔗 [Посмотреть коммит](https://github.com/${{ github.repository }}/commit/${{ github.sha }})
