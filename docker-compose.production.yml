@@ -34,7 +34,7 @@ services:
     ports:
       - 8000:8000
     command: >
-      sh -c "cp -r /app/build/. /frontend_static/ && npx -y http-server -p 9000 /app/build"
+      sh -c "cp -r /app/build/. /frontend_static/ && npx -y http-server -p 8000 /app/build"
     volumes:
       - static:/frontend_static
 
