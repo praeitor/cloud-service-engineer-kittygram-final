@@ -28,6 +28,9 @@ services:
   frontend:
     image: praeitor/kittygram_frontend
     container_name: frontend
+    depends_on:
+      - postgres
+      - backend
     ports:
       - 8000:8000
     command: >
