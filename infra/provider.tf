@@ -6,19 +6,20 @@ terraform {
   }
   required_version = ">= 0.13"
 
-  backend "s3" {
-    endpoints = {
-      s3 = "https://storage.yandexcloud.net"
-    }
-    bucket = "common-bucket"
-    region = "ru-central1"
-    key    = "tf-state.tfstate"
+  #backend "s3" {
+  #  endpoints = {
+  #    s3 = "https://storage.yandexcloud.net"
+  #  }
+  #  bucket = "kittygram-tf-state"
+  #  region = "ru-central1"
+  #  key    = "tf-state.tfstate"
+  #  use_path_style = true
 
-    skip_region_validation      = true
-    skip_credentials_validation = true
-    skip_requesting_account_id  = true
-    skip_s3_checksum            = true
-  }
+  #  skip_region_validation      = true
+  #  skip_credentials_validation = true
+  #  skip_requesting_account_id  = true
+  #  skip_s3_checksum            = true
+  #}
 }
 
 provider "yandex" {
