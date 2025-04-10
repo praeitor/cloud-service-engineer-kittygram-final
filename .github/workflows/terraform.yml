@@ -9,6 +9,7 @@ on:
         description: 'Select the Terraform action'
         required: true
         default: 'plan'
+        type: choice
         options:
           - plan
           - apply
