@@ -1,0 +1,18 @@
+#cloud-config
+ssh_pwauth: no
+users:
+  - name: user
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    shell: /bin/bash
+    ssh-authorized-keys:
+      - ${SSH_KEY}
+write_files:
+  - path: /root/vm_prep.sh
+    permissions: "0744"
+    content: |
+      #!/bin/bash
+      apt-get update
+      apt-get install -y docker.io docker-compose
+      usermod -aG docker user
+runcmd:
+  - /root/vm_prep.sh

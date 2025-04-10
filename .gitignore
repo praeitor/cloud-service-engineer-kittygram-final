@@ -3,3 +3,8 @@
 venv/
 .env
 tests/__pycache__/
+infra/.terraform.lock.hcl
+infra/.terraform/
+infra/authorized_key.json
+infra/terraform.tfstate.backup
+infra/tf-state.tfstate
