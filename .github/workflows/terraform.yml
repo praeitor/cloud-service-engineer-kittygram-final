@@ -9,8 +9,8 @@ on:
         default: 'plan'
         options:
           - plan
-          # - apply
-          # - destroy
+          - apply
+          - destroy
 
 jobs:
   terraform:
