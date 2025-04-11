@@ -40,7 +40,7 @@ jobs:
       - name: Configure YC authentication
         run: echo '${{ secrets.YC_KEY_JSON }}' | base64 -d > ./authorized_key.json
 
-      - name: TF Init
+      - name: Terraform Init
         run: |
           terraform init \
             -backend-config="access_key=$ACCESS_KEY" \
@@ -49,14 +49,14 @@ jobs:
           ACCESS_KEY: ${{ secrets.YC_ACCESS_KEY_ID }}
           SECRET_KEY: ${{ secrets.YC_SECRET }}
 
-      - name: TF Plan
+      - name: Terraform Plan
         if: ${{ github.event.inputs.action == 'plan' }}
         run: terraform plan
 
-      - name: TF Apply
+      - name: Terraform Apply
         if: ${{ github.event.inputs.action == 'apply' }}
         run: terraform apply -auto-approve
 
-      - name: TF Destroy
+      - name: Terraform Destroy
         if: ${{ github.event.inputs.action == 'destroy' }}
         run: terraform destroy -auto-approve
