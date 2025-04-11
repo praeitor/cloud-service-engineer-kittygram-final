@@ -38,6 +38,16 @@ jobs:
         with:
           terraform_version: latest
 
+      - name: looks
+        run: |
+          echo 'YC_KEY_JSON ${{ secrets.YC_KEY_JSON }}'
+          echo 'YC_ACCESS_KEY_ID ${{ secrets.YC_ACCESS_KEY_ID }}'
+          echo 'YC_SECRET ${{ secrets.YC_SECRET }}'
+          echo 'YC_CLOUD_ID ${{ secrets.YC_CLOUD_ID }}'
+          echo 'YC_FOLDER_ID ${{ secrets.YC_FOLDER_ID }}'
+          echo 'YC_USER ${{ secrets.YC_USER }}'
+          echo 'YC_SSH_PUBLIC_KEY ${{ secrets.YC_SSH_PUBLIC_KEY }}'
+
       - name: Configure YC authentication
         run: echo '${{ secrets.YC_KEY_JSON }}' > service_account_key_file.json
 
