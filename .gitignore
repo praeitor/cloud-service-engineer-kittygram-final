@@ -8,3 +8,4 @@ infra/.terraform/
 infra/authorized_key.json
 infra/terraform.tfstate.backup
 infra/tf-state.tfstate
+infra/terraform.tfvars
