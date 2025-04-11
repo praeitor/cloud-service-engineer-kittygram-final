@@ -14,6 +14,7 @@ terraform {
    region = "ru-central1"
    key    = "tf-state.tfstate"
    use_path_style = true
+   encrypt        = true
 
    skip_region_validation      = true
    skip_credentials_validation = true
