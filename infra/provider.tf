@@ -12,7 +12,7 @@ terraform {
    }
    bucket = "kittygram-tf-state"
    region = "ru-central1"
-   key    = "tf-state.tfstate"
+   key    = "terraform.tfstate"
    use_path_style = true
    encrypt        = true
 
