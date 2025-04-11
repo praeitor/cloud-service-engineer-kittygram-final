@@ -29,13 +29,13 @@ variable "ssh_key" {
 
 variable "cloud_id" {
   description = "Cloud ID"
-  default = "cloudid"
+  default = "b1g7bicnn1km30av5dml"
   type = string
 }
 
 variable "folder_id" {
   description = "Folder ID"
-  default = "floderid"
+  default = "b1g99rkrkmmgb47jvgib"
   type = string
 }
 
