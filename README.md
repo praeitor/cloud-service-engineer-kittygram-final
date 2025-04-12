@@ -6,17 +6,16 @@
 	•	Используется VPC, подсеть, публичный IP, секьюрити-группа и виртуальная машина.
 	•	Workflow запускается в ручном режиме через GitHub Actions.
 
-YC_TOKEN - OAuth-токен Yandex Cloud (сгенерировать в IAM)
-YC_CLOUD_ID - ID облака Yandex Cloud
-YC_FOLDER_ID - ID каталога в котором создаются ресурсы
-YC_ZONE - Зона доступности (например, ru-central1-a)
-YC_SSH_PUBLIC_KEY - Публичный SSH-ключ для доступа к ВМ
-YC_SSH_PRIVATE_KEY - Приватный SSH-ключ (используется для Ansible-доступа)
-
 ### Обязательные секреты GitHub
+Перед запуском необходимо добавить в секреты репозитория следующие параметры:№№№
 
-Перед запуском необходимо добавить в секреты репозитория следующие параметры:
-
+YC_TOKEN
+YC_ACCESS_KEY_ID
+YC_CLOUD_ID
+YC_FOLDER_ID
+YC_KEY_JSON
+YC_SECRET
+YC_SSH_PUBLIC_KEY
 
 ## Что нужно сделать
 
