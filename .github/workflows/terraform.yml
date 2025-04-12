@@ -35,7 +35,7 @@ jobs:
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v2
         with:
-          terraform_version: latest
+          terraform_version: 1.8.3
 
       - name: Configure YC authentication
         run: echo '${{ secrets.YC_KEY_JSON }}' | base64 -d > ./authorized_key.json
