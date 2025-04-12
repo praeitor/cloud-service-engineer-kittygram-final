@@ -15,4 +15,6 @@ write_files:
       apt-get install -y docker.io docker-compose
       usermod -aG docker user
 runcmd:
+  - sleep 120
+  - sudo -i
   - /root/vm_prep.sh
